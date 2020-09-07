@@ -7,6 +7,15 @@ public class Produto {
 	private double quantidade;
 	private double valor;
 
+	public Produto() {}
+	
+	public Produto(Long id, String nome, double quantidade, double valor) {
+		this.id = id;
+		this.nome = nome;
+		this.quantidade = quantidade;
+		this.valor = valor;
+	}
+	
 	public Long getId() {
 		return id;
 	}

@@ -30,8 +30,8 @@ public class UsuarioServelet {
 		daoUsuario.atualizar(beansJsp);
 	}
 
-	public boolean validacao(String login, String senha) {
-		if (daoUsuario.validarAtualizacao(login) && daoUsuario.validarSenha(senha)) {
+	public boolean validacao(String login) {
+		if (daoUsuario.validarAtualizacao(login)) {
 			return true;
 		}
 		return false;

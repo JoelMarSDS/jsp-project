@@ -6,7 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="resources/css/cadastro.css" type="text/css" rel="stylesheet" />
-<title>Insert title here</title>
+<link href="resources/css/produto.css" type="text/css" rel="stylesheet" />
+<title>Usuário</title>
 </head>
 <body>
 	<center>

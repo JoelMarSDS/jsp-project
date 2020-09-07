@@ -138,23 +138,5 @@ public class DaoUsuario {
 		
 		
 	}
-	public boolean validarSenha(String senha) {
-		
-		try {
-			String sql = "select count(1) as qtd from usuario u where senha = '"+ senha +"'";
-			
-			PreparedStatement statement = connection.prepareStatement(sql);
-			ResultSet resultSet = statement.executeQuery();
-			
-			if (resultSet.next()) {
-				return resultSet.getInt("qtd") <= 0;
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return false;
-		
-		
-	}
+
 }

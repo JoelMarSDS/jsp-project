@@ -23,6 +23,7 @@ public class UsuarioCadastro extends HttpServlet {
 	private String nome;
 	private String telefone;
 
+	private String acaoDoPost;
 	private String acao;
 	private String user;
 
@@ -56,9 +57,9 @@ public class UsuarioCadastro extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String acao = request.getParameter("acao");
+		acaoDoPost = request.getParameter("acao");
 
-		if (acao != null && acao.equalsIgnoreCase("reset")) {
+		if (acaoDoPost != null && acaoDoPost.equalsIgnoreCase("reset")) {
 			try {
 				listarCadastro(request, response);
 			} catch (SQLException e) {
@@ -83,16 +84,16 @@ public class UsuarioCadastro extends HttpServlet {
 						request.setAttribute("msg", "Dados invalidos, peencha todos os campos obrigatórios!");
 					} else {
 					*/
-					if (id == null || id.isEmpty() && !acoesServelet.validacao(login, senha)) {
+					if (id == null || id.isEmpty() && !acoesServelet.validacao(login)) {
 						request.setAttribute("msg", "Usuario existente!!!");
 					}
 
-					if (id == null || id.isEmpty() && acoesServelet.validacao(login, senha)) {
+					if (id == null || id.isEmpty() && acoesServelet.validacao(login)) {
 
 						acoesServelet.salvar(beansJsp);
 
 					} else if (id != null && !id.isEmpty()) {
-						if (!acoesServelet.validacao(login, senha)) {
+						if (!acoesServelet.validacao(login)) {
 							request.setAttribute("msg", "Usuario existente!!!");
 						} else {
 							acoesServelet.atualizar(beansJsp);
@@ -118,7 +119,7 @@ public class UsuarioCadastro extends HttpServlet {
 
 	private void editar(HttpServletRequest request, HttpServletResponse response, String user)
 			throws ServletException, IOException {
-		BeansJsp beansJsp = acoesServelet.consultar(user);
+		beansJsp = acoesServelet.consultar(user);
 		RequestDispatcher view = request.getRequestDispatcher("/cadastroUsuario.jsp");
 		request.setAttribute("user", beansJsp);
 		view.forward(request, response);
