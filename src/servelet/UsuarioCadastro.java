@@ -79,12 +79,11 @@ public class UsuarioCadastro extends HttpServlet {
 						!telefone.isEmpty() ? Long.parseLong(telefone) : 0);
 
 				try {
-					/*
-					if (beansJsp == null || beansJsp.getId() == 0) {
-						request.setAttribute("msg", "Dados invalidos, peencha todos os campos obrigatórios!");
-					} else {
-					*/
-					if (id == null || id.isEmpty() && !acoesServelet.validacao(login)) {
+					if (login == null|| login.isEmpty()
+						|| senha == null || senha.isEmpty()
+						|| nome == null || nome.isEmpty()) {
+						request.setAttribute("msg", "Preencha todos os campos obrigatórios");
+					} else if (id == null || id.isEmpty() && !acoesServelet.validacao(login)) {
 						request.setAttribute("msg", "Usuario existente!!!");
 					}
 

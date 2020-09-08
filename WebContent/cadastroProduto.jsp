@@ -16,6 +16,7 @@
 	</center>
 	<div class="painel-cadastro-principal">
 		<form class="form-cadastro" action="produtoCadastro" method="post"
+			onsubmit="return validarCampos() ? true : false;"
 			id="formCadastroProduto">
 			<table class="painel-info">
 				<tr>
@@ -23,23 +24,27 @@
 					<td><input type="text" id="id" name="id" value="${user.id}"></td>
 				</tr>
 				<tr>
-					<td>Nome do produto:</td>
+					<td>*Nome do produto:</td>
 					<td><input type="text" id="nome" name="nome"
 						value="${user.nome}"></td>
 				</tr>
 				<tr>
-					<td>Quantidade:</td>
+					<td>*Quantidade:</td>
 
 					<td><input type="text" id="quantidade" name="quantidade"
 						value="${user.quantidade}"></td>
 				</tr>
 				<tr>
-					<td>Preço:</td>
+					<td>*Preço:</td>
 
 					<td><input type="text" id="valor" name="valor"
 						value="${user.valor}"></td>
 				</tr>
+				<tr>
+					<td colspan="2">Os campos com * são obrigatórios.</td>
+				</tr>
 			</table>
+
 			<input type="submit" value="Salvar"> <input type="submit"
 				value="Cancelar"
 				onclick="document.getElementById('formCadastroProduto').action = 'produtoCadastro?acao=reset'">
@@ -56,7 +61,8 @@
 			</tr>
 			<c:forEach items="${produto}" var="user">
 				<tr>
-					<td style="width: 10%" align="center"><c:out value="${user.id}"></c:out></td>
+					<td style="width: 10%" align="center"><c:out
+							value="${user.id}"></c:out></td>
 					<td style="width: 25%"><c:out value="${user.nome}"></c:out></td>
 					<td style="width: 25%"><c:out value="${user.quantidade}"></c:out></td>
 					<td style="width: 25%"><c:out value="${user.valor}"></c:out></td>
@@ -69,5 +75,17 @@
 			</c:forEach>
 		</table>
 	</div>
+	<script type="text/javascript">
+		function validarCampos() {
+			if (document.getElementById("nome").value == ''
+					|| document.getElementById("quantidade").value == ''
+					|| document.getElementById("valor").value == '') {
+				alert('Preencha todos os campos obrigatórios');
+				return false;
+			} else {
+				return true;
+			}
+		}
+	</script>
 </body>
 </html>

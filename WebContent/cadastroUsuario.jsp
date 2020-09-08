@@ -16,25 +16,25 @@
 	</center>
 	<div class="painel-cadastro-principal">
 		<form class="form-cadastro" action="usuarioCadastro" method="post"
-			id="formCadastro">
+			onsubmit="return validarCampos() ? true : false;" id="formCadastro">
 			<table class="painel-info">
 				<tr>
 					<td>Código:</td>
 					<td><input type="text" id="id" name="id" value="${user.id}"></td>
 				</tr>
 				<tr>
-					<td>Login:</td>
+					<td>*Login:</td>
 					<td><input type="text" id="login" name="login"
 						value="${user.login}"></td>
 				</tr>
 				<tr>
-					<td>Senha:</td>
+					<td>*Senha:</td>
 
 					<td><input type="password" id="senha" name="senha"
 						value="${user.senha}"></td>
 				</tr>
 				<tr>
-					<td>Nome:</td>
+					<td>*Nome:</td>
 
 					<td><input type="text" id="nome" name="nome"
 						value="${user.nome}"></td>
@@ -44,6 +44,9 @@
 
 					<td><input type="text" id="telefone" name="telefone"
 						value="${user.telefone}"></td>
+				</tr>
+				<tr>
+					<td colspan="2">Os campos com * são obrigatórios.</td>
 				</tr>
 			</table>
 			<input type="submit" value="Salvar"> <input type="submit"
@@ -76,5 +79,17 @@
 			</c:forEach>
 		</table>
 	</div>
+	<script type="text/javascript">
+		function validarCampos() {
+			if (document.getElementById("login").value == ''
+					|| document.getElementById("senha").value == ''
+					|| document.getElementById("nome").value == '') {
+				alert('Preencha todos os campos obrigatórios');
+				return false;
+			} else {
+				return true;
+			}
+		}
+	</script>
 </body>
 </html>

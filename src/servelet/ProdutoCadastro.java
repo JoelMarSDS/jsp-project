@@ -71,12 +71,11 @@ public class ProdutoCadastro extends HttpServlet {
 						!quantidade.isEmpty() ? Double.parseDouble(quantidade) : 0,
 						!valor.isEmpty() ? Double.parseDouble(valor) : 0);
 
-				/*
-				 * if (beansJsp == null || beansJsp.getId() == 0) { request.setAttribute("msg",
-				 * "Dados invalidos, peencha todos os campos obrigatórios!"); } else {
-				 */
-
-				if (id == null || id.isEmpty()) {
+				if (nome == null|| nome.isEmpty()
+					|| quantidade == null || quantidade.isEmpty()
+					|| valor == null || valor.isEmpty()) {
+					request.setAttribute("msg", "Preencha todos os campos obrigatórios");
+				} else if (id == null || id.isEmpty()) {
 
 					cadastro.salvar(produto);
 

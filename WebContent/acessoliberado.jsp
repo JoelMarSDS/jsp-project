@@ -13,17 +13,29 @@
 <body>
 	<div class="conteirner-acesso-liberado">
 		<jsp:setProperty property="*" name="calculo" />
-		<h1>Seja Bem Vindo!!!</h1>
-
-		<a href="usuarioCadastro?acao=listarCadastro"> <img
-			alt="Cadastrar Usuário"
-			src="resources/imagens/Users-Add-User-icon.png">
-		</a>
-		<a href="produtoCadastro?acao=listarProduto">Produtos
-		</a>
-		<!-- <img
-			alt="Cadastrar Usuário"
-			src="resources/imagens/Users-Add-User-icon.png"> -->
+		<table>
+			<tr>
+				<th colspan="2">
+					<h1>Seja Bem Vindo!!!</h1>
+				</th>
+			</tr>
+			<tr>
+				<td >
+					<div class="usuario-div">
+						<a href="usuarioCadastro?acao=listarCadastro"> <img
+							alt="Cadastrar Usuário"
+							src="resources/imagens/Users-Add-User-icon.png">
+						</a>
+					</div>
+				</td>
+				<td>
+					<div class="produto-div">
+						<a href="produtoCadastro?acao=listarProduto"><img
+							alt="Produtos" src="resources/imagens/produtos.png"> </a>
+					</div>
+				</td>
+			</tr>
+		</table>
 	</div>
 </body>
 </html>

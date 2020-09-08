@@ -8,18 +8,22 @@ body {
 	margin: 0px
 }
 
-.conteirner-acesso-liberado img {
-	width: 10vw;
-	height: 20vh;
-	margin-left: 35px;
-	display: flex;
-	justify-content: center;
-	align-items: center
+.conteirner-acesso-liberado table tr{
+	width: 100%;
 }
 
-h1{
+.conteirner-acesso-liberado .usuario-div img{
+	width: 100%;
+	background-color: red;
+}
+
+.conteirner-acesso-liberado .produto-div img{
+	width: 100%;
+}
+
+h1 {
 	text-align: left;
 	margin: 25px;
-	font-size: 20px;
+	font-size: 1000px;
 	font-family: fantasy;
 }
